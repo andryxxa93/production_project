@@ -4,5 +4,8 @@
   "Язык": "English",
   "Main": "Main",
   "About": "About",
-  "TOGGLE": "TOGGLE"
+  "TOGGLE": "TOGGLE",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "Something went wrong",
+  "Перезагрузить страницу": "Reload page"
 }
