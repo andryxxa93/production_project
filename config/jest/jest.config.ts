@@ -2,9 +2,8 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
-// TODO fix this
-// eslint-disable-next-line import/no-import-module-exports
-import path from 'path';
+
+const path = require('path');
 
 module.exports = {
     // All imported modules in your tests should be mocked automatically
