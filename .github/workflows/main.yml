@@ -8,10 +8,10 @@ on:
       [master]
 jobs:
   pipeline:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [17.x]
 
     steps:
       - uses: actions/checkout@v2
