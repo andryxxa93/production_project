@@ -8,5 +8,7 @@
   "Страница не найдена": "Page not found",
   "Произошла непредвиденная ошибка": "Something went wrong",
   "Перезагрузить страницу": "Reload page",
-  "Короткий язык": "EN"
+  "Короткий язык": "EN",
+  "increment": "increment",
+  "decrement": "decrement"
 }
