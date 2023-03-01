@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Counter } from 'entities/Counter';
 
 function MainPage() {
     const { t } = useTranslation('main');
+    const [value, setValue] = useState('');
+
+    const onChangeInputHandler = (value: string) => setValue(value);
 
     return (
         <div>
