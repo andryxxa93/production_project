@@ -11,5 +11,7 @@
   "Короткий язык": "EN",
   "increment": "increment",
   "decrement": "decrement",
-  "Enter user name": "Enter user name"
+  "Enter user name": "Enter user name",
+  "Форма авторизации": "Auth Form",
+  "Вы ввели неправильное имя или пароль": "You entered incorrect password or username"
 }

@@ -1,12 +1,12 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
+import { userReducer } from 'entitie/User';
+import { loginReducer } from 'features/AuthByUserName';
 import { StateScheme } from './StoreSheme';
 
 export function createReduxStore(initialState: StateScheme) {
     const rootReducer: ReducersMapObject<StateScheme> = {
-        counter: counterReducer,
         user: userReducer,
+        loginForm: loginReducer,
     };
 
     return configureStore<StateScheme>({

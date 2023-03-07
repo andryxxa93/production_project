@@ -41,6 +41,7 @@ module.exports = {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
+    transformIgnorePatterns: ['node_modules/(?!axios)'],
     // Stop running tests after `n` failures
     // bail: 0,
 

@@ -45,7 +45,7 @@ module.exports = {
         }],
         'max-len': ['error', {
             ignoreComments: true,
-            code: 100,
+            code: 120,
             ignoreTemplateLiterals: true,
             ignoreStrings: true,
         }],
