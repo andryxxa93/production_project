@@ -1,17 +1,27 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entitie/User';
-import { loginReducer } from 'features/AuthByUserName';
 import { StateScheme } from './StoreSheme';
+import { createReducerManager } from './reducerManager';
 
-export function createReduxStore(initialState: StateScheme) {
+export function createReduxStore(
+    initialState: StateScheme,
+    asyncReducers?: ReducersMapObject<StateScheme>,
+) {
     const rootReducer: ReducersMapObject<StateScheme> = {
+        ...asyncReducers,
         user: userReducer,
-        loginForm: loginReducer,
     };
 
-    return configureStore<StateScheme>({
-        reducer: rootReducer,
+    const reducerManager = createReducerManager(rootReducer);
+
+    const store = configureStore<StateScheme>({
+        reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
     });
+
+    // @ts-ignore
+    store.reducerManager = reducerManager;
+
+    return store;
 }
