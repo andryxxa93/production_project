@@ -51,6 +51,22 @@ server.use((req, res, next) => {
 
 server.use(router);
 
+server.get('/profile', (_, res) => {
+    try {
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const { profile } = db;
+
+        if (profile) {
+            return res.json(profile);
+        }
+
+        return res.status(403).json({ message: 'Profile not found' });
+    } catch (e) {
+        console.log(e);
+        return res.status(500).json({ message: e.message });
+    }
+});
+
 // запуск сервера
 server.listen(8000, () => {
     console.log('server is running on 8000 port');

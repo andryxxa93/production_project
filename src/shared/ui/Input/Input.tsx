@@ -21,7 +21,7 @@ export const Input = memo((props: InputProps) => {
 
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
-    const inputRef = useRef<HTMLInputElement>();
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (autoFocus) {

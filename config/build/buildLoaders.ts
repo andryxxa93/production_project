@@ -19,8 +19,16 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
     const typescriptLoaders = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+            {
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: false,
+                },
+            },
+        ],
         exclude: /node_modules/,
+
     };
 
     const cssLoaders = buildCssLoaders(isDev);
