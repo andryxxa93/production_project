@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { action } from '@storybook/addon-actions';
+import { updateProfileData } from 'entitie/Profile/services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../../services/fetchProfileData/fetchProfileData';
 import { Profile, ProfileScheme } from '../types/profile';
 
@@ -13,7 +15,19 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
-
+        setReadOnly: (state, action: PayloadAction<boolean>) => {
+            state.readonly = action.payload;
+        },
+        updateProfile: (state, action: PayloadAction<Profile>) => {
+            state.form = {
+                ...state.data,
+                ...action.payload,
+            };
+        },
+        cancelEdit: (state) => {
+            state.readonly = true;
+            state.form = state.data;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -27,8 +41,26 @@ export const profileSlice = createSlice({
             ) => {
                 state.isLoading = false;
                 state.data = action.payload;
+                state.form = action.payload;
             })
             .addCase(fetchProfileData.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+            .addCase(updateProfileData.pending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addCase(updateProfileData.fulfilled, (
+                state,
+                action: PayloadAction<Profile>,
+            ) => {
+                state.isLoading = false;
+                state.data = action.payload;
+                state.form = action.payload;
+                state.readonly = true;
+            })
+            .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });

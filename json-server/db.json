@@ -1,29 +1,48 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server-1", "author": "typicode" },
-    { "id": 2, "title": "json-server-2", "author": "typicode" },
-    { "id": 3, "title": "json-server-3", "author": "typicode" },
-    { "id": 4, "title": "json-server-4", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "json-server-1",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "json-server-2",
+      "author": "typicode"
+    },
+    {
+      "id": 3,
+      "title": "json-server-3",
+      "author": "typicode"
+    },
+    {
+      "id": 4,
+      "title": "json-server-4",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "first": "Андрей",
+    "lastname": "Гордиенко",
+    "age": 30,
+    "currency": "RUB",
+    "country": "RUSSIA",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://static7.tgcnt.ru/posts/_0/95/95b965a38d28100849bcc1f2fe78d992.jpg"
+  },
   "users": [
     {
       "id": 1,
       "username": "admin",
       "password": "123"
     }
-  ],
-  "profile": {
-    "first": "Тимур",
-    "lastname": "Ульби",
-    "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  ]
 }

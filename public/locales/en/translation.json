@@ -14,5 +14,8 @@
   "Enter user name": "Enter user name",
   "Форма авторизации": "Auth Form",
   "Вы ввели неправильное имя или пароль": "You entered incorrect password or username",
-  "Profile Page": "Profile Page"
+  "Profile Page": "Profile Page",
+  "Отменить": "Отменить",
+  "Сохранить": "Сохранить",
+  "Укажите валюту": "Укажите валюту"
 }
