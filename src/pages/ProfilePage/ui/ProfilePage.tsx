@@ -1,7 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
-    fetchProfileData, getProfileForm, getProfileReadOnly, profileActions, ProfileCard, profileReducer,
+    fetchProfileData,
+    getProfileForm,
+    getProfileReadOnly,
+    getProfileValidateErrors,
+    profileActions,
+    ProfileCard,
+    profileReducer,
+    ValidateProfileError,
 } from 'entitie/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback, useEffect } from 'react';
@@ -10,6 +17,8 @@ import { getProfileLoading } from 'entitie/Profile/model/selectors/getProfileLoa
 import { getProfileError } from 'entitie/Profile/model/selectors/getProfileError/getProfileError';
 import { CURRENCY } from 'entitie/Currency';
 import { COUNTRY } from 'entitie/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducerList = {
@@ -21,13 +30,26 @@ export interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
+    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadOnly);
     const form = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileLoading);
     const error = useSelector(getProfileError);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslation = {
+        [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Неправильно указана страна'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия имеют неверный формат'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.NO_DATA]: t('Нет данных'),
+    };
 
     useEffect(() => {
+        if (__PROJECT__ === 'storybook') {
+            return;
+        }
         dispatch(fetchProfileData());
     }, [dispatch]);
 
@@ -70,6 +92,13 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((error) => (
+                    <Text
+                        key={error}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslation[error]}
+                    />
+                ))}
                 <ProfileCard
                     data={form}
                     isLoading={isLoading}
