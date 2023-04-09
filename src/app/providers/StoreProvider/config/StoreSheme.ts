@@ -7,11 +7,13 @@ import { ProfileScheme } from 'entitie/Profile';
 import { AxiosInstance } from 'axios';
 import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router-dom';
+import { ArticleDetailsScheme } from 'entitie/Article';
 
 export interface StateScheme {
     user: UserSchema,
     loginForm?: LoginScheme,
     profile?: ProfileScheme,
+    articleDetails?: ArticleDetailsScheme,
 }
 
 export interface ReducerManager {
