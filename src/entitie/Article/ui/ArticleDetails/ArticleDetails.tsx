@@ -19,6 +19,7 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { ArticleCodeBlockComponent } from 'entitie/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entitie/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from 'entitie/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
@@ -53,12 +54,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (__PROJECT__ === 'storybook') {
-            return;
-        }
-        dispatch(fetchArticleById(id));
-    }, [dispatch, id]);
+    useInitialEffect(() => dispatch(fetchArticleById(id)));
 
     let content;
 
@@ -104,7 +100,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
             <div className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </div>
-            {article?.blocks.map(renderBlock)}
+            {article?.blocks?.length && article?.blocks.map(renderBlock)}
         </DynamicModuleLoader>
     );
 });
