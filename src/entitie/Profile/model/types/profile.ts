@@ -17,7 +17,8 @@ export interface Profile {
         'country'?: COUNTRY,
         'city'?: string,
         'username'?: string,
-        'avatar'?: string
+        'avatar'?: string,
+    id?: string;
 }
 
 export interface ProfileScheme {

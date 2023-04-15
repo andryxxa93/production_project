@@ -11,7 +11,7 @@ import {
     ValidateProfileError,
 } from 'entitie/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getProfileLoading } from 'entitie/Profile/model/selectors/getProfileLoading/getProfileLoading';
 import { getProfileError } from 'entitie/Profile/model/selectors/getProfileError/getProfileError';
@@ -19,6 +19,8 @@ import { CURRENCY } from 'entitie/Currency';
 import { COUNTRY } from 'entitie/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducerList = {
@@ -37,6 +39,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const isLoading = useSelector(getProfileLoading);
     const error = useSelector(getProfileError);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorTranslation = {
         [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
@@ -46,12 +49,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.NO_DATA]: t('Нет данных'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ === 'storybook') {
-            return;
-        }
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+    useInitialEffect(() => {
+        if (!id) return;
+
+        dispatch(fetchProfileData(id));
+    });
 
     const onChangeFirstName = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));

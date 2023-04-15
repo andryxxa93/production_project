@@ -24,6 +24,7 @@ describe('updateProfileData.test', () => {
         city: 'Moscow',
         username: 'admin',
         avatar: 'https://static7.tgcnt.ru/posts/_0/95/95b965a38d28100849bcc1f2fe78d992.jpg',
+        id: '1',
     };
 
     test('success', async () => {
