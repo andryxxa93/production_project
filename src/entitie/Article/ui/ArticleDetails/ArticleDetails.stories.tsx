@@ -26,6 +26,11 @@ const article: ArticleDetailsScheme = {
         views: 1022,
         createdAt: '26.02.2022',
         type: [ArticleType.IT],
+        user: {
+            id: '2',
+            username: 'admin',
+            avatar: 'https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj',
+        },
         blocks: [
             {
                 id: '1',
