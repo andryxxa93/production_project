@@ -28,14 +28,6 @@ export const ArticleList = memo(({
         <ArticleListItem viewMode={viewMode} article={article} className={cls.card} key={article.id} />
     );
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[viewMode]])}>
-                {getSkeletons(viewMode)}
-            </div>
-        );
-    }
-
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[viewMode]])}>
             {
@@ -43,6 +35,7 @@ export const ArticleList = memo(({
                     ? articles.map(renderArticle)
                     : null
             }
+            {isLoading && getSkeletons(viewMode)}
         </div>
     );
 });
