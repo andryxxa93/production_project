@@ -22,10 +22,15 @@ export const DynamicModuleLoader = ({
     const dispatch = useDispatch();
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getMountedReducers();
+
         Object.entries(reducers).forEach(([name, reducer]) => {
-            if (!store.getState()[name as keyof StateScheme]) {
-                store.reducerManager.add(name as keyof StateScheme, reducer);
-                dispatch({ type: `@INIT ${name} reducer` });
+            const mounted = mountedReducers[name as keyof StateScheme];
+            if (!mounted) {
+                if (!store.getState()[name as keyof StateScheme]) {
+                    store.reducerManager.add(name as keyof StateScheme, reducer);
+                    dispatch({ type: `@INIT ${name} reducer` });
+                }
             }
         });
         return () => {

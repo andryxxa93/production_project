@@ -3,7 +3,7 @@ import { createReduxStore } from 'app/providers/StoreProvider/config/store';
 import { ReactNode } from 'react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StateScheme } from 'app/providers/StoreProvider';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 export interface StoreProviderProps {
     children?: ReactNode,
@@ -12,12 +12,12 @@ export interface StoreProviderProps {
 }
 
 export const StoreProvider = ({ children, initialState, asyncReducers }: StoreProviderProps) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const store = createReduxStore(
         initialState as StateScheme,
         asyncReducers as ReducersMapObject<StateScheme>,
-        navigate,
+        // navigate,
     );
 
     return (

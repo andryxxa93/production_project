@@ -11,7 +11,7 @@ import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticle
 export const fetchNextArticlesPage = createAsyncThunk<void,
     void,
     ThunkConfig<string>>(
-        'articleDetailsPage/fetchCommentsByArticleId ',
+        'articlesPage/fetchNextArticle ',
         async (
             _,
             { getState, dispatch },
