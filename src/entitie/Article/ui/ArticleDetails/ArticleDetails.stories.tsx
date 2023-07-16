@@ -7,7 +7,7 @@ import { ArticleDetailsScheme } from 'entitie/Article';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'ui/ArticleDetails',
+    title: 'entities/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },

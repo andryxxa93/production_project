@@ -3,8 +3,7 @@ import {
 } from '@reduxjs/toolkit';
 import { userReducer } from 'entitie/User';
 import { $api } from 'shared/api/api';
-import { To } from '@remix-run/router';
-import { NavigateOptions } from 'react-router-dom';
+import { scrollReducer } from 'features/ScrollSaver';
 import { StateScheme, ThunkExtraArg } from './StoreSheme';
 import { createReducerManager } from './reducerManager';
 
@@ -16,6 +15,7 @@ export function createReduxStore(
     const rootReducer: ReducersMapObject<StateScheme> = {
         ...asyncReducers,
         user: userReducer,
+        scrollSaver: scrollReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);

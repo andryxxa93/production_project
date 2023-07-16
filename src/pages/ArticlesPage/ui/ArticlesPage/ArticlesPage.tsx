@@ -6,7 +6,9 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
+import { ArticlePageFilters } from 'pages/ArticlesPage/ui/ArticlePageFIlters/ArticlePageFilters';
+import { useSearchParams } from 'react-router-dom';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
@@ -37,14 +39,12 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const page = useSelector(getArticlesPageNum);
     const hasMore = useSelector(getArticlesPageHasMore);
 
-    const onChangeView = useCallback((view: ArticleViewMode) => {
-        dispatch(articlePageActions.setView(view));
-    }, [dispatch]);
-
     const articles = useSelector(getArticles.selectAll);
 
+    const [searchParams] = useSearchParams();
+
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     const onLoadNextPart = useCallback(() => {
@@ -54,8 +54,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
-                <ArticleViewSelector view={viewMode} onViewClick={onChangeView} />
+                <ArticlePageFilters />
                 <ArticleList
+                    className={cls.list}
                     isLoading={isLoading}
                     viewMode={viewMode}
                     articles={articles}

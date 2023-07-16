@@ -11,6 +11,7 @@ import { ArticleDetailsScheme } from 'entitie/Article';
 import { ArticlesDetailsCommentsScheme } from 'pages/ArticlesDetailsPage';
 import { AddCommentFormScheme } from 'features/AddNewCommentForm';
 import { ArticlePageScheme } from 'pages/ArticlesPage';
+import { ScrollSaverScheme } from 'features/ScrollSaver';
 
 export interface StateScheme {
     user: UserSchema,
@@ -20,6 +21,7 @@ export interface StateScheme {
     articleDetailsComments?: ArticlesDetailsCommentsScheme;
     addCommentForm?: AddCommentFormScheme;
     articlesPage?: ArticlePageScheme;
+    scrollSaver: ScrollSaverScheme;
 }
 
 export type MountedReducers = OptionalRecord<keyof StateScheme, boolean>;

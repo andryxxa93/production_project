@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleList } from './ArticleList';
 
 export default {
-    title: 'ui/ArticleList',
+    title: 'entities/ArticleList',
     component: ArticleList,
     argTypes: {
         backgroundColor: { control: 'color' },

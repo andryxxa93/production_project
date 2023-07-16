@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleImageBlockComponent } from './ArticleImageBlockComponent';
 
 export default {
-    title: 'ui/ArticleImageBlockComponent',
+    title: 'entities/ArticleImageBlockComponent',
     component: ArticleImageBlockComponent,
     argTypes: {
         backgroundColor: { control: 'color' },
