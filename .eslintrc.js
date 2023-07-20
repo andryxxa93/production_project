@@ -41,11 +41,11 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'label', 'size'],
+            ignoreAttribute: ['data-testid', 'to', 'label', 'size', 'target'],
         }],
         'max-len': ['error', {
             ignoreComments: true,
-            code: 120,
+            code: 130,
             ignoreTemplateLiterals: true,
             ignoreStrings: true,
         }],

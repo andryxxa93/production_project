@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItem } from 'entitie/Article/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entitie/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Article, ArticleViewMode } from '../../model/types/article';
@@ -11,6 +11,7 @@ export interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     viewMode?: ArticleViewMode;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (viewMode: ArticleViewMode) => new Array(viewMode === ArticleViewMode.LIST ? 3 : 9)
@@ -20,12 +21,12 @@ const getSkeletons = (viewMode: ArticleViewMode) => new Array(viewMode === Artic
     ));
 
 export const ArticleList = memo(({
-    className, articles, viewMode = ArticleViewMode.BLOCK, isLoading,
+    className, articles, viewMode = ArticleViewMode.BLOCK, isLoading, target,
 }: ArticleListProps) => {
     const { t } = useTranslation();
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem viewMode={viewMode} article={article} className={cls.card} key={article.id} />
+        <ArticleListItem target={target} viewMode={viewMode} article={article} className={cls.card} key={article.id} />
     );
 
     return (

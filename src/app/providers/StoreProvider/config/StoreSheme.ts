@@ -5,10 +5,12 @@ import {
 } from '@reduxjs/toolkit';
 import { ProfileScheme } from 'entitie/Profile';
 import { AxiosInstance } from 'axios';
-import { To } from '@remix-run/router';
-import { NavigateOptions } from 'react-router-dom';
 import { ArticleDetailsScheme } from 'entitie/Article';
-import { ArticlesDetailsCommentsScheme } from 'pages/ArticlesDetailsPage';
+import {
+    ArticleDetailsPageScheme,
+    ArticlesDetailsCommentsScheme,
+    ArticlesDetailsRecommendationsScheme,
+} from 'pages/ArticlesDetailsPage';
 import { AddCommentFormScheme } from 'features/AddNewCommentForm';
 import { ArticlePageScheme } from 'pages/ArticlesPage';
 import { ScrollSaverScheme } from 'features/ScrollSaver';
@@ -18,10 +20,10 @@ export interface StateScheme {
     loginForm?: LoginScheme;
     profile?: ProfileScheme;
     articleDetails?: ArticleDetailsScheme;
-    articleDetailsComments?: ArticlesDetailsCommentsScheme;
     addCommentForm?: AddCommentFormScheme;
     articlesPage?: ArticlePageScheme;
     scrollSaver: ScrollSaverScheme;
+    articleDetailsPage?: ArticleDetailsPageScheme;
 }
 
 export type MountedReducers = OptionalRecord<keyof StateScheme, boolean>;
