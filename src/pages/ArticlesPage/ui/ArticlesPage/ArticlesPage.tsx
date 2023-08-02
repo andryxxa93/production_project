@@ -1,14 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleList, ArticleViewMode, ArticleViewSelector } from 'entitie/Article';
+import { ArticleList } from 'entitie/Article';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
-import { ArticlePageFilters } from 'pages/ArticlesPage/ui/ArticlePageFIlters/ArticlePageFilters';
 import { useSearchParams } from 'react-router-dom';
+import { ArticlePageFilters } from '../ArticlePageFIlters/ArticlePageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
@@ -19,7 +19,7 @@ import {
     getArticlesPageViewMode,
 } from '../../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPage.module.scss';
-import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
+import { articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 
 export interface ArticlesPageProps {
     className?: string
