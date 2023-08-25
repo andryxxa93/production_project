@@ -1,20 +1,20 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Country } from './Country';
+import { CountrySelect } from './CountrySelect';
 
 export default {
     title: 'entities/Country',
-    component: Country,
+    component: CountrySelect,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     args: {
         to: '/',
     },
-} as ComponentMeta<typeof Country>;
+} as ComponentMeta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof Country> = (args) => <Country {...args} />;
+const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

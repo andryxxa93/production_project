@@ -1,11 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Comment } from 'entitie/Comment';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { VStack } from 'shared/ui/Stack';
+import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
 
 export interface CommentCardProps {
@@ -30,12 +31,12 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
     if (!comment) return null;
 
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
+        <VStack gap="16" max className={classNames(cls.CommentCard, {}, [className])}>
             <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
                 <Avatar size={30} imageUrl={comment?.user?.avatar} />
                 <Text className={cls.username} size={TextSize.L} text={comment?.user?.username} />
             </AppLink>
             <Text text={comment.text} />
-        </div>
+        </VStack>
     );
 });
