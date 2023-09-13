@@ -1,7 +1,8 @@
-import { ProfileScheme, updateProfileData, ValidateProfileError } from 'entitie/Profile';
 import { CURRENCY } from 'entitie/Currency';
 import { COUNTRY } from 'entitie/Country';
+import { ProfileScheme, ValidateProfileError } from '../types/editableProfileCardSchema';
 import { profileReducer, profileActions } from './profileSlice';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 describe('profileSlice.test', () => {
     const data = {

@@ -5,9 +5,11 @@ import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicMo
 import { articleDetailsReducer } from 'entitie/Article/model/slices/articleDetailsSlice';
 import { addCommentFormReducer } from 'features/AddNewCommentForm/model/slices/addCommentFormSlice';
 import { articleDetailsPageReducer } from 'pages/ArticlesDetailsPage/model/slices';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
+    profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsPage: articleDetailsPageReducer,

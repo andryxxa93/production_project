@@ -3,7 +3,6 @@ import { LoginScheme } from 'features/AuthByUserName';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileScheme } from 'entitie/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsScheme } from 'entitie/Article';
 import {
@@ -14,6 +13,8 @@ import {
 import { AddCommentFormScheme } from 'features/AddNewCommentForm';
 import { ArticlePageScheme } from 'pages/ArticlesPage';
 import { ScrollSaverScheme } from 'features/ScrollSaver';
+import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileScheme } from 'features/editableProfileCard';
 
 export interface StateScheme {
     user: UserSchema,
@@ -24,6 +25,7 @@ export interface StateScheme {
     articlesPage?: ArticlePageScheme;
     scrollSaver: ScrollSaverScheme;
     articleDetailsPage?: ArticleDetailsPageScheme;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
 
 export type MountedReducers = OptionalRecord<keyof StateScheme, boolean>;
