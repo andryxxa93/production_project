@@ -44,6 +44,15 @@ module.exports = {
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
     transformIgnorePatterns: ['node_modules/(?!axios)'],
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            openReport: true,
+            inlineSource: true,
+        }],
+    ],
     // Stop running tests after `n` failures
     // bail: 0,
 
