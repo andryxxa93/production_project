@@ -3,7 +3,6 @@ import { createReduxStore } from 'app/providers/StoreProvider/config/store';
 import { ReactNode } from 'react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StateScheme } from 'app/providers/StoreProvider';
-// import { useNavigate } from 'react-router-dom';
 
 export interface StoreProviderProps {
     children?: ReactNode,

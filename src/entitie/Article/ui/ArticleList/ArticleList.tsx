@@ -1,8 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { ArticleListItem } from 'entitie/Article/ui/ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from 'entitie/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleViewMode } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 
@@ -23,8 +22,6 @@ const getSkeletons = (viewMode: ArticleViewMode) => new Array(viewMode === Artic
 export const ArticleList = memo(({
     className, articles, viewMode = ArticleViewMode.BLOCK, isLoading, target,
 }: ArticleListProps) => {
-    const { t } = useTranslation();
-
     const renderArticle = (article: Article) => (
         <ArticleListItem target={target} viewMode={viewMode} article={article} className={cls.card} key={article.id} />
     );

@@ -3,10 +3,9 @@ import { fetchArticleById } from 'entitie/Article/model/services/fetchArticleByI
 
 export function useInitialEffect(callback: () => void) {
     useEffect(() => {
-        if (__PROJECT__ === 'storybook') {
-            return;
+        if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
+            callback();
         }
-        callback();
         // eslint-disable-next-line
     }, []);
 }
