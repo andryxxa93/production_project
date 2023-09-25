@@ -6,9 +6,12 @@ import { ReduxStoreWithManager, ThunkExtraArg, ThunkConfig } from './config/Stor
 export {
     StoreProvider,
     createReduxStore,
-    StateScheme,
+};
+
+export type {
     ReduxStoreWithManager,
     AppDispatch,
     ThunkExtraArg,
     ThunkConfig,
+    StateScheme,
 };

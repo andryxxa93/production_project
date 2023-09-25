@@ -2,7 +2,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { StateScheme } from 'app/providers/StoreProvider';
 import { CURRENCY } from 'entitie/Currency';
 import { COUNTRY } from 'entitie/Country';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileData } from './validateProfileData';
 
 describe('validateProfileData.test', () => {

@@ -1855,6 +1855,12 @@
       "text": " ",
       "userId": "1",
       "id": "Hd41scx"
+    },
+    {
+      "articleId": "1",
+      "text": "2121",
+      "userId": "1",
+      "id": "YqF3aCY"
     }
   ],
   "users": [
@@ -1862,21 +1868,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
     },
     {
       "id": "3",
       "username": "manger",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
     }
   ],

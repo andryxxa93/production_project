@@ -1,7 +1,8 @@
-import { LoginModal } from 'features/AuthByUserName/ui/LoginModal/LoginModal';
-import { LoginScheme } from 'features/AuthByUserName/model/types/loginScheme';
+import { LoginModal } from './ui/LoginModal/LoginModal';
+import { LoginScheme } from './model/types/loginScheme';
 
-export {
-    LoginModal,
+export type {
     LoginScheme,
 };
+
+export { LoginModal };

@@ -5,8 +5,11 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export { getArticleDetailsData } from './model/selectors/articleDetails';
 
-export { ArticleDetailsScheme } from './model/types/ArticleDetailsScheme';
+export type { ArticleDetailsScheme } from './model/types/ArticleDetailsScheme';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
-export {
-    Article, ArticleViewMode, ArticleSortField, ArticleType,
+export type {
+    Article,
 } from './model/types/article';
+export { ArticleSortField } from 'entitie/Article/model/consts/consts';
+export { ArticleViewMode } from 'entitie/Article/model/consts/consts';
+export { ArticleType } from 'entitie/Article/model/consts/consts';

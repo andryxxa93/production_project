@@ -1,2 +1,2 @@
-export { Comment } from 'entitie/Comment/model/types/comment';
+export type { Comment } from 'entitie/Comment/model/types/comment';
 export { CommentList } from './ui/CommentList/CommentList';
