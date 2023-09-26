@@ -20,27 +20,29 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    const typescriptLoaders = {
-        test: /\.tsx?$/,
-        use: [
-            {
-                loader: 'ts-loader',
-                options: {
-                    transpileOnly: false,
-                },
-            },
-        ],
-        exclude: /node_modules/,
-
-    };
+    // const typescriptLoaders = {
+    //     test: /\.tsx?$/,
+    //     use: [
+    //         {
+    //             loader: 'ts-loader',
+    //             options: {
+    //                 transpileOnly: false,
+    //             },
+    //         },
+    //     ],
+    //     exclude: /node_modules/,
+    //
+    // };
 
     const cssLoaders = buildCssLoaders(isDev);
 
-    const babelLoader = buildBabelLoader(options);
+    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     return [
-        babelLoader,
-        typescriptLoaders,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        // typescriptLoaders,
         cssLoaders,
         svgLoaders,
         fileLoaders,
