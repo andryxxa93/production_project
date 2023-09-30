@@ -52,6 +52,7 @@ module.exports = {
                 'direction',
                 'gap',
                 'as',
+                'border',
             ],
         }],
         'max-len': ['error', {

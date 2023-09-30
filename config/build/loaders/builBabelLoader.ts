@@ -27,7 +27,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
                         { props: ['data-testid'] },
                     ],
                     '@babel/plugin-transform-runtime',
-                ],
+                ].filter(Boolean),
             },
         },
     };
