@@ -1,12 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo, useCallback, useState } from 'react';
-import { Popover } from 'shared/ui/Popups';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
-import NotificationIcon from 'shared/assets/icons/notification.svg';
-import { NotificationList } from 'entitie/Notification';
-import { useMobile } from 'shared/lib/hooks/useMobile/useMobile';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Popover } from '@/shared/ui/Popups';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import { NotificationList } from '@/entitie/Notification';
+import { useMobile } from '@/shared/lib/hooks/useMobile/useMobile';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 export interface NotificationButtonProps {
@@ -45,9 +46,11 @@ export const NotificationButton = memo(({ className }: NotificationButtonProps) 
             {isMobile && (
                 <>
                     {trigger}
-                    <Drawer isOpen={isOpen} onClose={onDrawerClose}>
-                        <NotificationList />
-                    </Drawer>
+                    <AnimationProvider>
+                        <Drawer isOpen={isOpen} onClose={onDrawerClose}>
+                            <NotificationList />
+                        </Drawer>
+                    </AnimationProvider>
                 </>
             )}
         </>

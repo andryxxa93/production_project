@@ -1,7 +1,7 @@
-import cls from 'shared/ui/Drawer/Drawer.module.scss';
 import React, {
     memo, MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
+import cls from '@/shared/ui/Drawer/Drawer.module.scss';
 import { Mods } from '../../../lib/classNames/classNames';
 
 interface UseModalProps {

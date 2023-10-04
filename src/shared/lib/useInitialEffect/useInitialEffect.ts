@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { fetchArticleById } from 'entitie/Article/model/services/fetchArticleById/fetchArticleById';
+import { fetchArticleById } from '@/entitie/Article/model/services/fetchArticleById/fetchArticleById';
 
 export function useInitialEffect(callback: () => void) {
     useEffect(() => {

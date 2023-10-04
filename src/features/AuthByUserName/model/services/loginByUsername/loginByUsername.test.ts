@@ -1,8 +1,8 @@
-import { loginByUsername } from 'features/AuthByUserName/model/services/loginByUsername/loginByUsername';
 import { Dispatch } from '@reduxjs/toolkit';
-import { StateScheme } from 'app/providers/StoreProvider';
-import { userActions } from 'entitie/User';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { loginByUsername } from '@/features/AuthByUserName/model/services/loginByUsername/loginByUsername';
+import { StateScheme } from '@/app/providers/StoreProvider';
+import { userActions } from '@/entitie/User';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('loginByUsername.test', () => {
     let dispatch: Dispatch;

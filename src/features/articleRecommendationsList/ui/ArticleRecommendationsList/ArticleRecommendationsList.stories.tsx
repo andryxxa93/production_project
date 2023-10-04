@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleType } from 'entitie/Article';
 import withMock from 'storybook-addon-mock';
-import { UserRole } from 'entitie/User/model/consts/consts';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article, ArticleType } from '@/entitie/Article';
+import { UserRole } from '@/entitie/User/model/consts/consts';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {

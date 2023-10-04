@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from 'entitie/User';
-import { getArticleDetailsData } from 'entitie/Article';
+import { getUserAuthData } from '@/entitie/User';
+import { getArticleDetailsData } from '@/entitie/Article';
 
 export const getCanUserEditArticle = createSelector(
     getUserAuthData,

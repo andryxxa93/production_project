@@ -1,1 +1,1 @@
-export { ArticleTypeTabs } from 'features/ArticleTypeTabs/ui/ArticleTypeTabs';
+export { ArticleTypeTabs } from './ui/ArticleTypeTabs';

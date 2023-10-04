@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { COUNTRY } from 'entitie/Country';
-import { CURRENCY } from 'entitie/Currency';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { COUNTRY } from '@/entitie/Country';
+import { CURRENCY } from '@/entitie/Currency';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ProfileCard } from './ProfileCard';
 
 export default {
