@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
@@ -15,9 +14,9 @@ export interface StarRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo(({
-    className, selectedStars, onSelect, size,
+    className, selectedStars = 0, onSelect, size,
 }: StarRatingProps) => {
-    const [currentStarCount, setCurrentStarCount] = useState(0);
+    const [currentStarCount, setCurrentStarCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (starsCount: number) => () => {

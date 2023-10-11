@@ -11,6 +11,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticlesDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slices';
+import { ArticleRating } from '@/features/articleRating/ui';
 
 export interface ArticlesDetailsPageProps {
     className?: string
@@ -38,6 +39,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>

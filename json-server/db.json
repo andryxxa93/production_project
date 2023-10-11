@@ -1949,5 +1949,40 @@
       "username": "admin",
       "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "cool",
+      "userId": 1,
+      "articleId": 1
+    },
+    {
+      "id": "2",
+      "rate": 3,
+      "feedback": "nice",
+      "userId": 2,
+      "articleId": 2
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 4,
+      "id": "442QtnI"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "id": "52nKoCD"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 4,
+      "feedback": "отлично",
+      "id": "vgVU8dJ"
+    }
   ]
 }
