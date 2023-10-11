@@ -27,7 +27,5 @@ export default (env: BuildEnv) => {
         project: 'frontend',
     });
 
-    config!.resolve!.alias = { '@': path.resolve(__dirname, '..', '..', 'src') };
-
     return config;
 };
