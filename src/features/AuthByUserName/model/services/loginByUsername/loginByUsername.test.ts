@@ -1,5 +1,5 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import { loginByUsername } from '@/features/AuthByUserName/model/services/loginByUsername/loginByUsername';
+import { loginByUsername } from '../loginByUsername/loginByUsername';
 import { StateScheme } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entitie/User';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
