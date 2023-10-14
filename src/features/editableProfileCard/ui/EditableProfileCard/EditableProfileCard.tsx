@@ -8,7 +8,6 @@ import { CURRENCY } from '@/entitie/Currency';
 import { COUNTRY } from '@/entitie/Country';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ProfileCard } from '@/entitie/Profile/ui/ProfileCard';
 import { VStack } from '@/shared/ui/Stack';
 import { ValidateProfileError } from '../../model/consts/consts';
 import {
@@ -21,6 +20,7 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileValidateErrors } from '../../model/selectors/getProfleValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { ProfileCard } from '@/entitie/Profile';
 
 interface EditableProfileCardProps {
     className?: string;

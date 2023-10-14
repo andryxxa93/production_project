@@ -6,3 +6,4 @@ export type {
 };
 
 export { LoginModal };
+export { loginReducer } from './model/slice/loginSlice';

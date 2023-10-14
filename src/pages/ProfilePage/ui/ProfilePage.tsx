@@ -3,11 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/useInitialEffect/useInitialEffect';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import { EditableProfileCard } from '@/features/editableProfileCard';
+import { EditableProfileCard, fetchProfileData } from '@/features/editableProfileCard';
 import { Text } from '@/shared/ui/Text/Text';
-import { fetchProfileData } from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
 
 export interface ProfilePageProps {
     className?: string
