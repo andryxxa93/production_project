@@ -15,4 +15,3 @@ export { ArticleViewMode } from './model/consts/consts';
 export { ArticleType } from './model/consts/consts';
 
 export { ArticleBlockType } from './model/consts/consts';
-export { articleDetailsReducer } from './model/slices/articleDetailsSlice';

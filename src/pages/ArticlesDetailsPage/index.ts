@@ -7,4 +7,3 @@ export type {
 export type { ArticlesDetailsCommentsScheme } from './model/types/ArticlesDetailsCommentsScheme';
 
 export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticlesDetailsPage/ArticleDetailsPage.async';
-export { articleDetailsPageReducer } from './model/slices';
