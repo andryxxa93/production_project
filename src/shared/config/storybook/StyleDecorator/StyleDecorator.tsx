@@ -1,3 +1,4 @@
+// eslint-disable-next-line path-fixer/layer-imports
 import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
 

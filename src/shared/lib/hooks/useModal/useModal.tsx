@@ -1,8 +1,6 @@
 import React, {
-    memo, MutableRefObject, useCallback, useEffect, useRef, useState,
+    MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
-import cls from '@/shared/ui/Drawer/Drawer.module.scss';
-import { Mods } from '../../../lib/classNames/classNames';
 
 interface UseModalProps {
     onClose?: () => void,
@@ -23,11 +21,6 @@ export const useModal = (props: UseModalProps) => {
             setIsMounted(true);
         }
     }, [isOpen]);
-
-    const mods: Mods = {
-        [cls.opened]: isOpen,
-        [cls.isClosing]: isClosing,
-    };
 
     const onCloseHandler = useCallback(() => {
         if (onClose) {

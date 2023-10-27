@@ -2,7 +2,7 @@ import React, { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from '@/widgets/PageLoader';
 import RequireAuth from './RequiredAuth';
-import { routeConfig } from '@/app/config/routeConfig';
+import { routeConfig } from '../../../config/routeConfig';
 import { AppRouteProps } from '@/shared/types/router';
 
 function AppRouter() {
