@@ -7,8 +7,6 @@ import { LoginScheme } from '@/features/AuthByUserName';
 import { ArticleDetailsScheme } from '@/entitie/Article';
 import {
     ArticleDetailsPageScheme,
-    ArticlesDetailsCommentsScheme,
-    ArticlesDetailsRecommendationsScheme,
 } from '@/pages/ArticlesDetailsPage';
 import { AddCommentFormScheme } from '@/features/AddNewCommentForm';
 import { ArticlePageScheme } from '@/pages/ArticlesPage';
