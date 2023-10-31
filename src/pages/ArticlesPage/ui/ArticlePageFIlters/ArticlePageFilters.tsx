@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    ArticleSortField, ArticleSortSelector, ArticleViewMode, ArticleViewSelector,
+    ArticleSortField, ArticleViewMode,
     ArticleType,
 } from '@/entitie/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -20,6 +20,8 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { articlePageActions } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePageFilters.module.scss';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 
 export interface ArticlePageFiltersProps {
     className?: string
