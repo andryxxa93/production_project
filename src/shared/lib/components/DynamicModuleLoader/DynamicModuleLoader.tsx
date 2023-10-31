@@ -4,7 +4,7 @@ import { Reducer } from '@reduxjs/toolkit';
 import { ReduxStoreWithManager, StateScheme } from '@/app/providers/StoreProvider';
 
 export type ReducerList = {
-    [name in keyof StateScheme]?: Reducer;
+    [name in keyof StateScheme]?: Reducer<NonNullable<StateScheme[name]>>;
 }
 
 type ReducerListEntry = [keyof StateScheme, Reducer];
