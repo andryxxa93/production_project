@@ -13,7 +13,7 @@ export function buildWebpackConfig(
     return {
         mode,
         entry: paths.entry,
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         module: {
             rules: buildLoaders(options),
         },
