@@ -1,6 +1,7 @@
 import { CSSProperties, useMemo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
+import { AppImage } from '../AppImage';
 
 export interface AvatarProps {
     className?: string;
@@ -17,7 +18,7 @@ export const Avatar = ({
     const styles = useMemo<CSSProperties>(() => ({ width: size || 100, height: size || 100 }), [size]);
 
     return (
-        <img
+        <AppImage
             src={imageUrl}
             style={styles}
             alt={alt}

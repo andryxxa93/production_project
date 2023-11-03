@@ -1,6 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
 import { Icon } from '@/shared/ui/Icon';
@@ -16,6 +15,8 @@ import {
     Article, ArticleTextBlock,
 } from '../../model/types/article';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleItemProps {
     className?: string;
@@ -28,7 +29,6 @@ export const ArticleListItem = memo(({
     className, article, viewMode, target,
 }: ArticleItemProps) => {
     const { t } = useTranslation();
-    const navigate = useNavigate();
 
     const types = <Text text={article?.type?.join(', ')} className={cls.types} />;
     const views = (
@@ -38,7 +38,14 @@ export const ArticleListItem = memo(({
         </>
     );
 
-    const image = <img src={article.img} alt={article.title} className={cls.img} />;
+    const image = (
+        <AppImage
+            fallback={<Skeleton width="100%" height="250" />}
+            src={article.img}
+            alt={article.title}
+            className={cls.img}
+        />
+    );
 
     const textBlock = article?.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
