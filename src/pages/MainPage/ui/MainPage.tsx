@@ -9,7 +9,7 @@ function MainPage() {
     const onChangeInputHandler = (value: string) => setValue(value);
 
     return (
-        <Page>
+        <Page data-testid="MainPage">
             {t('Главная страница')}
         </Page>
     );
