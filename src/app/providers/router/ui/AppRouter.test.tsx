@@ -48,7 +48,7 @@ describe('app/providers/router/AppRouter', () => {
         componentRender(<AppRouter />, {
             route: getRouteAdminPanel(),
             initialState: {
-                user: { _inited: true, authData: { roles: [] } },
+                user: { _inited: true, authData: { roles: [UserRole.USER] } },
             },
         });
 
