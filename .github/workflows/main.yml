@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: install modules
-        run: npm install
+        run: npm ci --force
       - name: build project
         if: always()
         run: npm run build:prod
@@ -40,4 +40,3 @@ jobs:
       - name: ui testing
         if: always()
         run: npm run test:ui:ci
-У вас нет доступа к этой странице: У вас нет доступа к этой странице
