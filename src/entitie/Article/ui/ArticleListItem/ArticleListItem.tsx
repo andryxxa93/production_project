@@ -51,7 +51,10 @@ export const ArticleListItem = memo(({
 
     if (viewMode === ArticleViewMode.LIST) {
         return (
-            <div className={classNames(cls.ArticleItem, {}, [className, cls[viewMode]])}>
+            <div
+                data-testid="ArticleListItem"
+                className={classNames(cls.ArticleItem, {}, [className, cls[viewMode]])}
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar imageUrl={article.user.avatar} size={30} />
@@ -83,6 +86,7 @@ export const ArticleListItem = memo(({
 
     return (
         <AppLink
+            data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleItem, {}, [className, cls[viewMode]])}

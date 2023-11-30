@@ -27,8 +27,8 @@ describe('Routing', () => {
             cy.visit('/profile/1');
             cy.get(selectByTestId('ProfilePage')).should('exist');
         });
-        it('Переход открывает страницу профиля', () => {
-            cy.visit('/articles');
+        it('Переход открывает страницу статей', () => {
+            cy.visit('/article');
             cy.get(selectByTestId('ArticlesPage')).should('exist');
         });
     });

@@ -28,7 +28,10 @@ export const ArticleList = memo(({
     );
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[viewMode]])}>
+        <div
+            data-testid="ArticleList"
+            className={classNames(cls.ArticleList, {}, [className, cls[viewMode]])}
+        >
             {
                 articles.length
                     ? articles.map(renderArticle)

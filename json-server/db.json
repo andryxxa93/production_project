@@ -1895,6 +1895,18 @@
       "text": "2121",
       "userId": "1",
       "id": "YqF3aCY"
+    },
+    {
+      "articleId": "1",
+      "text": "text",
+      "userId": "1",
+      "id": "yOlIBlf"
+    },
+    {
+      "articleId": "1",
+      "text": "text",
+      "userId": "1",
+      "id": "6_O-gMT"
     }
   ],
   "users": [
@@ -1924,12 +1936,21 @@
         "MANAGER"
       ],
       "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
+    },
+    {
+      "id": "4",
+      "username": "testUser",
+      "password": "password",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
     }
   ],
   "profile": [
     {
       "id": "1",
-      "first": "user",
+      "first": "admin",
       "lastname": "asf",
       "age": 465,
       "currency": "RUB",
@@ -1947,6 +1968,17 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "admin",
+      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "id": "4",
+      "first": "testUser",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "ENGLAND",
+      "city": "Moscow",
+      "username": "testUser",
       "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
     }
   ],
