@@ -8,8 +8,13 @@ export interface OverlayProps {
     onClick?: () => void;
 }
 
-export const Overlay = memo(({ className, children, onClick }: OverlayProps) => (
-    <div onClick={onClick} className={classNames(cls.Overlay, {}, [className])}>
-        {children}
-    </div>
-));
+export const Overlay = memo(
+    ({ className, children, onClick }: OverlayProps) => (
+        <div
+            onClick={onClick}
+            className={classNames(cls.Overlay, {}, [className])}
+        >
+            {children}
+        </div>
+    ),
+);

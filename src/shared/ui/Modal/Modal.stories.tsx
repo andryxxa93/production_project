@@ -21,9 +21,7 @@ Primary.args = {
     isOpen: true,
 };
 
-Primary.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-];
+Primary.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -31,6 +29,4 @@ Dark.args = {
     isOpen: true,
 };
 
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

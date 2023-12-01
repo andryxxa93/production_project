@@ -10,20 +10,33 @@ export interface NotificationItemProps {
     notification: Notification;
 }
 
-export const NotificationItem = memo(({ className, notification }: NotificationItemProps) => {
-    const content = (
-        <Card theme={CardTheme.OUTLINED} className={classNames(cls.NotificationItem, {}, [className])}>
-            <Text text={notification.description} title={notification.title} />
-        </Card>
-    );
-
-    if (notification.href) {
-        return (
-            <a href={notification.href} target="_blank" rel="noreferrer" className={cls.link}>
-                {content}
-            </a>
+export const NotificationItem = memo(
+    ({ className, notification }: NotificationItemProps) => {
+        const content = (
+            <Card
+                theme={CardTheme.OUTLINED}
+                className={classNames(cls.NotificationItem, {}, [className])}
+            >
+                <Text
+                    text={notification.description}
+                    title={notification.title}
+                />
+            </Card>
         );
-    }
 
-    return content;
-});
+        if (notification.href) {
+            return (
+                <a
+                    href={notification.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={cls.link}
+                >
+                    {content}
+                </a>
+            );
+        }
+
+        return content;
+    },
+);

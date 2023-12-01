@@ -21,6 +21,4 @@ Primary.args = {
     placeholder: 'placeholder',
 };
 
-Primary.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+Primary.decorators = [ThemeDecorator(Theme.DARK)];

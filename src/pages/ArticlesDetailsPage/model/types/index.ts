@@ -1,4 +1,7 @@
-import { ArticlesDetailsCommentsScheme, ArticlesDetailsRecommendationsScheme } from '../../../ArticlesDetailsPage';
+import {
+    ArticlesDetailsCommentsScheme,
+    ArticlesDetailsRecommendationsScheme,
+} from '../../../ArticlesDetailsPage';
 
 export interface ArticleDetailsPageScheme {
     comments: ArticlesDetailsCommentsScheme;

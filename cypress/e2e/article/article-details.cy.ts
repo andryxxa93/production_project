@@ -25,7 +25,9 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('AddCommentForm.Input').should('have.value', 'text');
     });
     it('и выставляет рейтинг', () => {
-        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'article-details.json',
+        });
         cy.getByTestId('ArticlesDetails.Info');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(5, 'feedback');

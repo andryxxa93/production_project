@@ -8,7 +8,7 @@ import { NotificationItem } from '../NotificationItem/NotificationItem';
 import cls from './NotificationList.module.scss';
 
 export interface NotificationListProps {
-    className?: string
+    className?: string;
 }
 
 export const NotificationList = memo(({ className }: NotificationListProps) => {
@@ -19,7 +19,10 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
 
     if (isLoading) {
         return (
-            <VStack gap="8" className={classNames(cls.NotificationList, {}, [className])}>
+            <VStack
+                gap="8"
+                className={classNames(cls.NotificationList, {}, [className])}
+            >
                 <Skeleton width="100%" border="8px" height="80px" />
                 <Skeleton width="100%" border="8px" height="80px" />
                 <Skeleton width="100%" border="8px" height="80px" />
@@ -28,7 +31,10 @@ export const NotificationList = memo(({ className }: NotificationListProps) => {
     }
 
     return (
-        <VStack gap="8" className={classNames(cls.NotificationList, {}, [className])}>
+        <VStack
+            gap="8"
+            className={classNames(cls.NotificationList, {}, [className])}
+        >
             {data?.map((notification) => (
                 <NotificationItem notification={notification} />
             ))}

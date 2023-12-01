@@ -11,7 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleCodeBlockComponent>;
 
-const Template: ComponentStory<typeof ArticleCodeBlockComponent> = (args) => <ArticleCodeBlockComponent {...args} />;
+const Template: ComponentStory<typeof ArticleCodeBlockComponent> = (args) => (
+    <ArticleCodeBlockComponent {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

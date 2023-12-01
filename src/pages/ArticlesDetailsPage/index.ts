@@ -1,8 +1,6 @@
 export type { ArticleDetailsPageScheme } from './model/types';
 
-export type {
-    ArticlesDetailsRecommendationsScheme,
-} from './model/types/ArticlesDetailsRecommendationsScheme';
+export type { ArticlesDetailsRecommendationsScheme } from './model/types/ArticlesDetailsRecommendationsScheme';
 
 export type { ArticlesDetailsCommentsScheme } from './model/types/ArticlesDetailsCommentsScheme';
 

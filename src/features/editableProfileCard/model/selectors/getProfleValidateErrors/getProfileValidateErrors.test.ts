@@ -13,11 +13,15 @@ describe('getProfileValidateErrors.test', () => {
                 validateError,
             },
         };
-        expect(getProfileValidateErrors(state as StateScheme)).toEqual(validateError);
+        expect(getProfileValidateErrors(state as StateScheme)).toEqual(
+            validateError,
+        );
     });
 
     test('should return undefined', () => {
         const state: DeepPartial<StateScheme> = {};
-        expect(getProfileValidateErrors(state as StateScheme)).toEqual(undefined);
+        expect(getProfileValidateErrors(state as StateScheme)).toEqual(
+            undefined,
+        );
     });
 });

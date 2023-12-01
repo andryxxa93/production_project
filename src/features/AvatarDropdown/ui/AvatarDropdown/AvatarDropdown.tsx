@@ -5,13 +5,16 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entitie/User';
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 export interface AvatarDropdownProps {
-    className?: string
+    className?: string;
 }
 
 export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
@@ -34,25 +37,25 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
         <Dropdown
             className={classNames(cls.AvatarDropdown, {}, [className])}
             direction="bottom left"
-            items={
-                [
-                    ...(isAdmin || isManager ? [{
-                        content: t('Админка'),
-                        href: getRouteAdminPanel(),
-                    }] : []),
-                    {
-                        content: t('Профиль'),
-                        href: getRouteProfile(authData.id),
-                    },
-                    {
-                        content: t('Выйти'),
-                        onClick: onLogout,
-                    },
-                ]
-            }
-            trigger={
-                <Avatar size={30} imageUrl={authData.avatar} />
-            }
+            items={[
+                ...(isAdmin || isManager
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
+                    : []),
+                {
+                    content: t('Профиль'),
+                    href: getRouteProfile(authData.id),
+                },
+                {
+                    content: t('Выйти'),
+                    onClick: onLogout,
+                },
+            ]}
+            trigger={<Avatar size={30} imageUrl={authData.avatar} />}
         />
     );
 });

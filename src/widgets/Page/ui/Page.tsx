@@ -1,6 +1,4 @@
-import {
-    memo, MutableRefObject, ReactNode, UIEvent, useRef,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -19,36 +17,47 @@ export interface PageProps extends TestProps {
     onScrollEnd?: () => void;
 }
 
-export const Page = memo(({
-    className, children, onScrollEnd, ...rest
-}: PageProps) => {
-    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const dispatch = useAppDispatch();
-    const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateScheme) => getScrollSaverByPath(state, pathname));
+export const Page = memo(
+    ({ className, children, onScrollEnd, ...rest }: PageProps) => {
+        const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+        const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+        const dispatch = useAppDispatch();
+        const { pathname } = useLocation();
+        const scrollPosition = useSelector((state: StateScheme) =>
+            getScrollSaverByPath(state, pathname),
+        );
 
-    useInfiniteScroll({
-        wrapperRef, triggerRef, callback: onScrollEnd,
-    });
+        useInfiniteScroll({
+            wrapperRef,
+            triggerRef,
+            callback: onScrollEnd,
+        });
 
-    useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
-    });
+        useInitialEffect(() => {
+            wrapperRef.current.scrollTop = scrollPosition;
+        });
 
-    const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollActions.setScrollPosition({ position: e.currentTarget.scrollTop, path: pathname }));
-    }, 500);
+        const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
+            dispatch(
+                scrollActions.setScrollPosition({
+                    position: e.currentTarget.scrollTop,
+                    path: pathname,
+                }),
+            );
+        }, 500);
 
-    return (
-        <main
-            data-testid={rest['data-testid'] ?? 'Page'}
-            onScroll={onScroll}
-            ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
-        >
-            {children}
-            { onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
-        </main>
-    );
-});
+        return (
+            <main
+                data-testid={rest['data-testid'] ?? 'Page'}
+                onScroll={onScroll}
+                ref={wrapperRef}
+                className={classNames(cls.Page, {}, [className])}
+            >
+                {children}
+                {onScrollEnd && (
+                    <div className={cls.trigger} ref={triggerRef} />
+                )}
+            </main>
+        );
+    },
+);

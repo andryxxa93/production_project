@@ -11,16 +11,20 @@ export default {
     },
 } as ComponentMeta<typeof CommentList>;
 
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
+const Template: ComponentStory<typeof CommentList> = (args) => (
+    <CommentList {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-    comments: [{
-        id: '1',
-        text: 'text',
-        user: {
+    comments: [
+        {
             id: '1',
-            username: 'Ad',
+            text: 'text',
+            user: {
+                id: '1',
+                username: 'Ad',
+            },
         },
-    }],
+    ],
 };

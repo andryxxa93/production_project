@@ -43,24 +43,33 @@ export interface FlexProps extends TestProps {
     max?: boolean;
 }
 
-export const Flex = memo(({
-    className, children, justify = 'start', direction = 'row', align = 'center', gap, max, ...other
-}: FlexProps) => {
-    const classes = [
+export const Flex = memo(
+    ({
         className,
-        justifyClasses[justify],
-        alignClasses[align],
-        directionClasses[direction],
-        gap && gapClasses[gap],
-    ];
+        children,
+        justify = 'start',
+        direction = 'row',
+        align = 'center',
+        gap,
+        max,
+        ...other
+    }: FlexProps) => {
+        const classes = [
+            className,
+            justifyClasses[justify],
+            alignClasses[align],
+            directionClasses[direction],
+            gap && gapClasses[gap],
+        ];
 
-    const mods: Mods = {
-        [cls.max]: max,
-    };
+        const mods: Mods = {
+            [cls.max]: max,
+        };
 
-    return (
-        <div className={classNames(cls.Flex, mods, classes)} {...other}>
-            {children}
-        </div>
-    );
-});
+        return (
+            <div className={classNames(cls.Flex, mods, classes)} {...other}>
+                {children}
+            </div>
+        );
+    },
+);

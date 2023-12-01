@@ -16,36 +16,39 @@ const options = [
     { value: CURRENCY.USD, content: CURRENCY.USD },
 ];
 
-export const CurrencySelect = memo(({
-    value, onChange, readonly, className,
-}: CurrencySelectProps) => {
-    const { t } = useTranslation();
+export const CurrencySelect = memo(
+    ({ value, onChange, readonly, className }: CurrencySelectProps) => {
+        const { t } = useTranslation();
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as CURRENCY);
-    }, [onChange]);
+        const onChangeHandler = useCallback(
+            (value: string) => {
+                onChange?.(value as CURRENCY);
+            },
+            [onChange],
+        );
 
-    return (
-        <ListBox
-            className={className}
-            value={value}
-            label={t('Укажите валюту')}
-            defaultValue={t('Укажите валюту')}
-            items={options}
-            onChange={onChangeHandler}
-            readonly={readonly}
-            direction="top right"
-        />
-    );
+        return (
+            <ListBox
+                className={className}
+                value={value}
+                label={t('Укажите валюту')}
+                defaultValue={t('Укажите валюту')}
+                items={options}
+                onChange={onChangeHandler}
+                readonly={readonly}
+                direction="top right"
+            />
+        );
 
-    // return (
-    //     <Select
-    //         className={className}
-    //         options={options}
-    //         label={t('Укажите валюту')}
-    //         value={value}
-    //         onChange={onChangeHandler}
-    //         readonly={readonly}
-    //     />
-    // );
-});
+        // return (
+        //     <Select
+        //         className={className}
+        //         options={options}
+        //         label={t('Укажите валюту')}
+        //         value={value}
+        //         onChange={onChangeHandler}
+        //         readonly={readonly}
+        //     />
+        // );
+    },
+);

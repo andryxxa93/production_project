@@ -2,9 +2,9 @@ import { Profile } from '@/entitie/Profile';
 import { ValidateProfileError } from '../consts/consts';
 
 export interface ProfileScheme {
-    data?: Profile,
-    form?: Profile,
-    isLoading: boolean,
+    data?: Profile;
+    form?: Profile;
+    isLoading: boolean;
     error?: string;
     readonly?: boolean;
     validateError?: ValidateProfileError[];

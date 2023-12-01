@@ -5,11 +5,14 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
-import { EditableProfileCard, fetchProfileData } from '@/features/editableProfileCard';
+import {
+    EditableProfileCard,
+    fetchProfileData,
+} from '@/features/editableProfileCard';
 import { Text } from '@/shared/ui/Text';
 
 export interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {

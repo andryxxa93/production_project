@@ -6,7 +6,9 @@ const project = new Project({});
 project.addSourceFilesAtPaths(['src/**/*.ts', 'src/**/*.tsx']);
 
 const files = project.getSourceFiles();
-const sharedUiDirectory = project.getDirectory(path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui'));
+const sharedUiDirectory = project.getDirectory(
+    path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui'),
+);
 
 const componentDirectories = sharedUiDirectory?.getDirectories();
 
@@ -21,7 +23,9 @@ componentDirectories?.forEach((directory) => {
 
     if (!indexFile) {
         const sourceCode = `export * from './${directory.getBaseName()}'`;
-        const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+        const file = directory.createSourceFile(indexFilePath, sourceCode, {
+            overwrite: true,
+        });
 
         file.save();
     }

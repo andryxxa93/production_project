@@ -14,30 +14,46 @@ export interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (viewMode: ArticleViewMode) => new Array(viewMode === ArticleViewMode.LIST ? 3 : 9)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton className={cls.card} viewMode={viewMode} key={index} />
-    ));
+const getSkeletons = (viewMode: ArticleViewMode) =>
+    new Array(viewMode === ArticleViewMode.LIST ? 3 : 9)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                className={cls.card}
+                viewMode={viewMode}
+                key={index}
+            />
+        ));
 
-export const ArticleList = memo(({
-    className, articles, viewMode = ArticleViewMode.BLOCK, isLoading, target,
-}: ArticleListProps) => {
-    const renderArticle = (article: Article) => (
-        <ArticleListItem target={target} viewMode={viewMode} article={article} className={cls.card} key={article.id} />
-    );
+export const ArticleList = memo(
+    ({
+        className,
+        articles,
+        viewMode = ArticleViewMode.BLOCK,
+        isLoading,
+        target,
+    }: ArticleListProps) => {
+        const renderArticle = (article: Article) => (
+            <ArticleListItem
+                target={target}
+                viewMode={viewMode}
+                article={article}
+                className={cls.card}
+                key={article.id}
+            />
+        );
 
-    return (
-        <div
-            data-testid="ArticleList"
-            className={classNames(cls.ArticleList, {}, [className, cls[viewMode]])}
-        >
-            {
-                articles.length
-                    ? articles.map(renderArticle)
-                    : null
-            }
-            {isLoading && getSkeletons(viewMode)}
-        </div>
-    );
-});
+        return (
+            <div
+                data-testid="ArticleList"
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[viewMode],
+                ])}
+            >
+                {articles.length ? articles.map(renderArticle) : null}
+                {isLoading && getSkeletons(viewMode)}
+            </div>
+        );
+    },
+);

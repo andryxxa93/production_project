@@ -9,7 +9,7 @@ interface RequireAuthProps {
     children: JSX.Element;
 }
 
-export default function RequireAuth({ children, roles } : RequireAuthProps) {
+export default function RequireAuth({ children, roles }: RequireAuthProps) {
     const auth = useSelector(getUserAuthData);
     const location = useLocation();
     const userRoles = useSelector(getUserRoles);

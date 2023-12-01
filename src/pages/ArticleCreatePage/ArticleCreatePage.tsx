@@ -4,15 +4,17 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCreatePage.module.scss';
 
 export interface ArticleCreatePageProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleCreatePage = memo(({ className }: ArticleCreatePageProps) => {
-    const { t } = useTranslation();
-    return (
-        // eslint-disable-next-line i18next/no-literal-string
-        <div className={classNames(cls.ArticleCreatePage, {}, [className])}>
-            ArticleCreatePage
-        </div>
-    );
-});
+export const ArticleCreatePage = memo(
+    ({ className }: ArticleCreatePageProps) => {
+        const { t } = useTranslation();
+        return (
+            // eslint-disable-next-line i18next/no-literal-string
+            <div className={classNames(cls.ArticleCreatePage, {}, [className])}>
+                ArticleCreatePage
+            </div>
+        );
+    },
+);

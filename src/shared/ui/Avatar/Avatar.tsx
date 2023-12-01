@@ -11,11 +11,17 @@ export interface AvatarProps {
 }
 
 export const Avatar = ({
-    className, imageUrl = 'https://vsegda-pomnim.com/uploads/posts/2022-04/thumbs/1649232741_8-vsegda-pomnim-com-p-pustoe-litso-foto-10.jpg', size, alt,
+    className,
+    imageUrl = 'https://vsegda-pomnim.com/uploads/posts/2022-04/thumbs/1649232741_8-vsegda-pomnim-com-p-pustoe-litso-foto-10.jpg',
+    size,
+    alt,
 }: AvatarProps) => {
     const mods: Mods = {};
 
-    const styles = useMemo<CSSProperties>(() => ({ width: size || 100, height: size || 100 }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({ width: size || 100, height: size || 100 }),
+        [size],
+    );
 
     return (
         <AppImage

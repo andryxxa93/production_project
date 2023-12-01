@@ -36,27 +36,21 @@ PrimaryDark.args = {
     title: 'Title',
 };
 
-PrimaryDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OnlyTitleDark = Template.bind({});
 OnlyTitleDark.args = {
     title: 'Title',
 };
 
-OnlyTitleDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OnlyTextDark = Template.bind({});
 OnlyTextDark.args = {
     text: 'Text',
 };
 
-OnlyTextDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ErrorTheme = Template.bind({});
 ErrorTheme.args = {

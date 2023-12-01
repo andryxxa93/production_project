@@ -8,11 +8,7 @@ function MainPage() {
 
     const onChangeInputHandler = (value: string) => setValue(value);
 
-    return (
-        <Page data-testid="MainPage">
-            {t('Главная страница')}
-        </Page>
-    );
+    return <Page data-testid="MainPage">{t('Главная страница')}</Page>;
 }
 
 export default MainPage;

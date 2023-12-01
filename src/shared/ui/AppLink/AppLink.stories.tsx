@@ -16,7 +16,9 @@ export default {
     },
 } as ComponentMeta<typeof AppLink>;
 
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
+const Template: ComponentStory<typeof AppLink> = (args) => (
+    <AppLink {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -42,9 +44,7 @@ PrimaryDark.args = {
     children: 'Link',
 };
 
-PrimaryDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SecondaryDark = Template.bind({});
 SecondaryDark.args = {
@@ -52,15 +52,11 @@ SecondaryDark.args = {
     children: 'Link',
 };
 
-SecondaryDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const RedDark = Template.bind({});
 RedDark.args = {
     theme: AppLinkTheme.RED,
     children: 'Link',
 };
-RedDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+RedDark.decorators = [ThemeDecorator(Theme.DARK)];

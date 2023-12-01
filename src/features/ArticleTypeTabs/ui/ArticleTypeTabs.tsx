@@ -10,38 +10,46 @@ export interface ArticleTypeTabsProps {
     onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = memo(({ className, value, onChangeType }: ArticleTypeTabsProps) => {
-    const { t } = useTranslation();
+export const ArticleTypeTabs = memo(
+    ({ className, value, onChangeType }: ArticleTypeTabsProps) => {
+        const { t } = useTranslation();
 
-    const typesTabs = useMemo<TabItem[]>(() => [
-        {
-            value: ArticleType.ALL,
-            content: t('Все'),
-        },
-        {
-            value: ArticleType.IT,
-            content: t('Айти'),
-        },
-        {
-            value: ArticleType.MEDICINE,
-            content: t('Медицина'),
-        },
-        {
-            value: ArticleType.SCIENCE,
-            content: t('Наука'),
-        },
-    ], [t]);
+        const typesTabs = useMemo<TabItem[]>(
+            () => [
+                {
+                    value: ArticleType.ALL,
+                    content: t('Все'),
+                },
+                {
+                    value: ArticleType.IT,
+                    content: t('Айти'),
+                },
+                {
+                    value: ArticleType.MEDICINE,
+                    content: t('Медицина'),
+                },
+                {
+                    value: ArticleType.SCIENCE,
+                    content: t('Наука'),
+                },
+            ],
+            [t],
+        );
 
-    const onTabClick = useCallback((tab: TabItem) => {
-        onChangeType(tab.value as ArticleType);
-    }, [onChangeType]);
+        const onTabClick = useCallback(
+            (tab: TabItem) => {
+                onChangeType(tab.value as ArticleType);
+            },
+            [onChangeType],
+        );
 
-    return (
-        <Tabs
-            tabs={typesTabs}
-            value={value}
-            className={classNames('', {}, [className])}
-            onTabClick={onTabClick}
-        />
-    );
-});
+        return (
+            <Tabs
+                tabs={typesTabs}
+                value={value}
+                className={classNames('', {}, [className])}
+                onTabClick={onTabClick}
+            />
+        );
+    },
+);

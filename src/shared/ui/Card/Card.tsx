@@ -15,13 +15,25 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
     max?: boolean;
 }
 
-export const Card = memo(({
-    className, children, theme = CardTheme.NORMAL, max, ...otherProps
-}: CardProps) => {
-    const { t } = useTranslation();
-    return (
-        <div className={classNames(cls.Card, { [cls.max]: max }, [className, cls[theme]])} {...otherProps}>
-            {children}
-        </div>
-    );
-});
+export const Card = memo(
+    ({
+        className,
+        children,
+        theme = CardTheme.NORMAL,
+        max,
+        ...otherProps
+    }: CardProps) => {
+        const { t } = useTranslation();
+        return (
+            <div
+                className={classNames(cls.Card, { [cls.max]: max }, [
+                    className,
+                    cls[theme],
+                ])}
+                {...otherProps}
+            >
+                {children}
+            </div>
+        );
+    },
+);

@@ -16,15 +16,9 @@ module.exports = {
     },
     testEnvironment: 'jsdom',
     clearMocks: true,
-    coveragePathIgnorePatterns: [
-        '/node_modules/',
-    ],
-    moduleDirectories: [
-        'node_modules',
-    ],
-    modulePaths: [
-        '<rootDir>src',
-    ],
+    coveragePathIgnorePatterns: ['/node_modules/'],
+    moduleDirectories: ['node_modules'],
+    modulePaths: ['<rootDir>src'],
     moduleFileExtensions: [
         'js',
         'mjs',
@@ -36,9 +30,7 @@ module.exports = {
         'node',
     ],
     rootDir: '../../',
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
@@ -48,12 +40,15 @@ module.exports = {
     transformIgnorePatterns: ['node_modules/(?!axios)'],
     reporters: [
         'default',
-        ['jest-html-reporters', {
-            publicPath: '<rootDir>/reports/unit',
-            filename: 'report.html',
-            // openReport: true,
-            inlineSource: true,
-        }],
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                // openReport: true,
+                inlineSource: true,
+            },
+        ],
     ],
     // Stop running tests after `n` failures
     // bail: 0,

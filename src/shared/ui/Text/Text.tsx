@@ -22,9 +22,9 @@ export enum TextSize {
 }
 
 export interface TextProps {
-    className?: string,
-    title?: string,
-    text?: string,
+    className?: string;
+    title?: string;
+    text?: string;
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
@@ -40,17 +40,27 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.XL]: 'h1',
 };
 
-export const Text = memo(({
-    className, text, title, align = TextAlign.LEFT, theme = TextTheme.PRIMARY, size = TextSize.M, 'data-testid': dataTestId = 'Text',
-}: TextProps) => {
-    const mods: Mods = { [cls[theme]]: true, [cls[align]]: true, [cls[size]]: true };
+export const Text = memo(
+    ({
+        className,
+        text,
+        title,
+        align = TextAlign.LEFT,
+        theme = TextTheme.PRIMARY,
+        size = TextSize.M,
+        'data-testid': dataTestId = 'Text',
+    }: TextProps) => {
+        const mods: Mods = {
+            [cls[theme]]: true,
+            [cls[align]]: true,
+            [cls[size]]: true,
+        };
 
-    const HeaderTag = mapSizeToHeaderTag[size];
+        const HeaderTag = mapSizeToHeaderTag[size];
 
-    return (
-        <div className={classNames(cls.Text, mods, [className])}>
-            {title
-                && (
+        return (
+            <div className={classNames(cls.Text, mods, [className])}>
+                {title && (
                     <HeaderTag
                         data-testid={`${dataTestId}.Header`}
                         className={cls.title}
@@ -58,14 +68,15 @@ export const Text = memo(({
                         {title}
                     </HeaderTag>
                 )}
-            {text && (
-                <p
-                    className={cls.text}
-                    data-testid={`${dataTestId}.Paragraph`}
-                >
-                    {text}
-                </p>
-            )}
-        </div>
-    );
-});
+                {text && (
+                    <p
+                        className={cls.text}
+                        data-testid={`${dataTestId}.Paragraph`}
+                    >
+                        {text}
+                    </p>
+                )}
+            </div>
+        );
+    },
+);

@@ -24,23 +24,29 @@ const viewTypes = [
     },
 ];
 
-export const ArticleViewSelector = memo(({ className, view, onViewClick }: ArticleViewSelectorProps) => {
-    const onClickHandler = (newView: ArticleViewMode) => () => {
-        onViewClick(newView);
-    };
+export const ArticleViewSelector = memo(
+    ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+        const onClickHandler = (newView: ArticleViewMode) => () => {
+            onViewClick(newView);
+        };
 
-    return (
-        <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-            {viewTypes.map((viewType, index) => (
-                <Button
-                    key={index}
-                    className={classNames('', { [cls.selected]: viewType.view === view })}
-                    theme={ThemeButton.CLEAR}
-                    onClick={onClickHandler(viewType.view)}
-                >
-                    <Icon Svg={viewType.icon} />
-                </Button>
-            ))}
-        </div>
-    );
-});
+        return (
+            <div
+                className={classNames(cls.ArticleViewSelector, {}, [className])}
+            >
+                {viewTypes.map((viewType, index) => (
+                    <Button
+                        key={index}
+                        className={classNames('', {
+                            [cls.selected]: viewType.view === view,
+                        })}
+                        theme={ThemeButton.CLEAR}
+                        onClick={onClickHandler(viewType.view)}
+                    >
+                        <Icon Svg={viewType.icon} />
+                    </Button>
+                ))}
+            </div>
+        );
+    },
+);

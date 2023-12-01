@@ -3,7 +3,10 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entitie/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
@@ -14,7 +17,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleRating } from '@/features/ArticleRating';
 
 export interface ArticlesDetailsPageProps {
-    className?: string
+    className?: string;
 }
 
 const reducers: ReducerList = {
@@ -23,11 +26,13 @@ const reducers: ReducerList = {
 
 const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     const { t } = useTranslation('article');
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
         return (
-            <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticlesDetailsPage, {}, [className])}
+            >
                 {t('Страница не найдена')}
             </Page>
         );
@@ -35,7 +40,9 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticlesDetailsPage, {}, [className])}
+            >
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
