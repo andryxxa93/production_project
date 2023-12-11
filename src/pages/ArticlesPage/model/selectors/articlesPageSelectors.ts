@@ -4,6 +4,7 @@ import {
     ArticleType,
     ArticleViewMode,
 } from '@/entitie/Article';
+import { buildSelector } from '@/shared/lib/store';
 
 export const getArticlesPageIsLoading = (state: StateScheme) =>
     state.articlesPage?.isLoading || false;
@@ -27,3 +28,7 @@ export const getArticlesPageSearch = (state: StateScheme) =>
     state.articlesPage?.search ?? '';
 export const getArticlesPageType = (state: StateScheme) =>
     state.articlesPage?.type ?? ArticleType.ALL;
+
+export const [useArticleItemById] = buildSelector(
+    (state, id: string) => state.articlesPage?.entities[id],
+);
