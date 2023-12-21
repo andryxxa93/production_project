@@ -1864,6 +1864,10 @@
             "id": "1",
             "username": "admin",
             "password": "123",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isArticleCommentEnabled": false
+            },
             "roles": ["ADMIN"],
             "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
         },
@@ -1871,6 +1875,10 @@
             "id": "2",
             "username": "user",
             "password": "123",
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isArticleCommentEnabled": true
+            },
             "roles": ["USER"],
             "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
         },
@@ -1878,6 +1886,10 @@
             "id": "3",
             "username": "manger",
             "password": "123",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isArticleCommentEnabled": false
+            },
             "roles": ["MANAGER"],
             "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
         },
@@ -1885,6 +1897,10 @@
             "id": "4",
             "username": "testUser",
             "password": "password",
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isArticleCommentEnabled": true
+            },
             "roles": ["MANAGER"],
             "avatar": "https://avatars.dzeninfra.ru/get-zen_doc/3700776/pub_5ff971c5f906b168729cd5fb_5ff9f69af906b168729970d5/scale_1200"
         }
