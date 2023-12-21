@@ -15,7 +15,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticlesDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleRating } from '@/features/ArticleRating';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
 
 export interface ArticlesDetailsPageProps {
     className?: string;
@@ -42,6 +42,18 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
         );
     }
 
+    const comments = toggleFeatures({
+        name: 'isArticleCommentEnabled',
+        off: () => null,
+        on: () => <ArticleDetailsComments id={id} />,
+    });
+
+    const articleRating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        off: () => null,
+        on: () => <ArticleRating articleId={id} />,
+    });
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page
@@ -50,11 +62,9 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    {articleRating}
                     <ArticleRecommendationsList />
-                    {isArticleCommentsEnabled && (
-                        <ArticleDetailsComments id={id} />
-                    )}
+                    {comments}
                 </VStack>
             </Page>
         </DynamicModuleLoader>
