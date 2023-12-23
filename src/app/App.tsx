@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { getUserInited, userActions } from '@/entitie/User';
+import { getUserInited, initAuthData } from '@/entitie/User';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import AppRouter from './providers/router/ui/AppRouter';
+import { PageLoader } from '@/widgets/PageLoader';
 
 function App() {
     const { theme } = useTheme();
@@ -15,8 +16,12 @@ function App() {
     const inited = useSelector(getUserInited);
 
     useEffect(() => {
-        dispatch(userActions.initAuthData());
+        dispatch(initAuthData());
     }, [dispatch]);
+
+    if (!inited) {
+        return <PageLoader />;
+    }
 
     return (
         <div className={classNames('app', {}, [theme])}>
