@@ -15,7 +15,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticlesDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleRating } from '@/features/ArticleRating';
-import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 export interface ArticlesDetailsPageProps {
     className?: string;
@@ -29,9 +29,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
 
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-    const isArticleCommentsEnabled = getFeatureFlag('isArticleCommentEnabled');
-
     if (!id) {
         return (
             <Page
@@ -42,18 +39,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
         );
     }
 
-    const comments = toggleFeatures({
-        name: 'isArticleCommentEnabled',
-        off: () => null,
-        on: () => <ArticleDetailsComments id={id} />,
-    });
-
-    const articleRating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        off: () => null,
-        on: () => <ArticleRating articleId={id} />,
-    });
-
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page
@@ -62,9 +47,17 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {articleRating}
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRating articleId={id} />}
+                        off={null}
+                    />
                     <ArticleRecommendationsList />
-                    {comments}
+                    <ToggleFeatures
+                        feature="isArticleCommentEnabled"
+                        on={<ArticleDetailsComments id={id} />}
+                        off={null}
+                    />
                 </VStack>
             </Page>
         </DynamicModuleLoader>
