@@ -1,8 +1,10 @@
 :root {
+    --font-family-main: "Courier New", "Times New Roman", serif;
+    --font-family-text-redesigned: "Nunito Sans", sans-serif;
+    --font-family-header-redesigned: "Roboto", sans-serif;
     --font-size-m: 16px;
     --font-line-s: 20px;
     --font-size-s: 12px;
-    --font-family-main: "Courier New", "Times New Roman", serif;
     --font-size-l: 24px;
     --font-line-m: 24px;
     --font-line-l: 32px;
@@ -28,4 +30,11 @@
     --overlay-background-color: rgb(0 0 0 / 60%);
     --red-light: #f00;
     --red-dark: #c40909;
+
+    // redesigned
+
+    --font-s-redesigned: var(--font-size-s) / var(--font-line-s) var(--font-family-text-redesigned);
+    --font-m-redesigned: var(--font-size-m) / var(--font-line-m) var(--font-family-text-redesigned);
+    --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-header-redesigned);
+    --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
 }
